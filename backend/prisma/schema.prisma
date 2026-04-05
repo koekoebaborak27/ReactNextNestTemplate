@@ -1,0 +1,62 @@
+// このファイルはSQLiteで動作しています。
+// PostgreSQLに移行する場合は以下の2行を変更してください。
+// provider = "sqlite" → provider = "postgresql"
+// url = "file:./dev.db" → url = env("DATABASE_URL")
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  name         String
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("users")
+}
+
+model Company {
+  id          Int      @id @default(autoincrement())
+  name        String
+  address     String
+  contactName String   @map("contact_name")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  contracts Contract[]
+  invoices  Invoice[]
+
+  @@map("companies")
+}
+
+model Contract {
+  id          Int      @id @default(autoincrement())
+  mapType     String   @map("map_type")
+  quantity    Int
+  royaltyRate Decimal  @map("royalty_rate")
+  companyId   Int      @map("company_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@map("contracts")
+}
+
+model Invoice {
+  id        Int      @id @default(autoincrement())
+  amount    Decimal
+  issuedAt  DateTime @map("issued_at")
+  status    String   @default("PENDING")
+  companyId Int      @map("company_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@map("invoices")
+}

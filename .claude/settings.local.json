@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(node:*)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(curl -s http://localhost:3001/auth/login -X POST -H \"Content-Type: application/json\" -d '{}')",
+      "Bash(curl -sv 'http://localhost:3001/companies?search=%E5%9C%B0%E5%9B%B3' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzUzMTYyNDgsImV4cCI6MTc3NTM0NTA0OH0.wCShQ4OiGQTp7ehl5XMzg5F3q_Wdnsjx889_xhkrBYg')",
+      "Bash(curl -s -X POST http://localhost:3001/companies/1/invoices -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzUzMTYyNDgsImV4cCI6MTc3NTM0NTA0OH0.wCShQ4OiGQTp7ehl5XMzg5F3q_Wdnsjx889_xhkrBYg' -H 'Content-Type: application/json' -d '{\"contractId\":1,\"unitPrice\":\"1000\"}')",
+      "Bash(curl -s http://localhost:3001/companies/1 -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NzUzMTYyNDgsImV4cCI6MTc3NTM0NTA0OH0.wCShQ4OiGQTp7ehl5XMzg5F3q_Wdnsjx889_xhkrBYg')",
+      "Bash(ls /c/work/WorkCode/ClaudeCode/ReactNextNestTemplate/backend/.env*)",
+      "Bash(ls /c/work/WorkCode/ClaudeCode/ReactNextNestTemplate/frontend/.env*)"
+    ]
+  }
+}
